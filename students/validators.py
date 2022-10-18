@@ -1,7 +1,13 @@
-import sqlite3  # noqa
+import sqlite3
 
 from django.core.exceptions import ValidationError
 from django.utils.deconstruct import deconstructible
+
+
+def get_connection():
+    conn = sqlite3.connect("example.sqlite3")
+    conn.row_factory = sqlite3.Row
+    return conn
 
 
 def valid_email_domains(value):
@@ -11,6 +17,17 @@ def valid_email_domains(value):
             break
     else:
         raise ValidationError(f'Email {value} is incorrect address')
+
+
+def validate_unique_email(value):
+    conn = get_connection()
+    emails = conn.execute('select email from students').fetchall()
+    conn.close()
+
+    for item in emails:
+        if value == item:
+            raise ValidationError(f'Email address {value} is busy')
+            break
 
 
 @deconstructible
