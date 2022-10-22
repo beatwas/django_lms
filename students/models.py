@@ -29,6 +29,7 @@ class Student(models.Model):
     birthday = models.DateField(default=date.today, null=True, blank=True)
     #   email = models.EmailField(validators=[valid_email_domains])
     email = models.EmailField(validators=[ValidEmailDomain(*VALID_DOMAINS_LIST)])
+    phone = models.CharField(validators=[MinLengthValidator(12)])
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
