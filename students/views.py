@@ -2,7 +2,7 @@ from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect
 from django.middleware.csrf import get_token
 from django.shortcuts import render # noqa
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt    # noqa
 
 from webargs.djangoparser import use_args
 from webargs.fields import Str
