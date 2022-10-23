@@ -19,9 +19,9 @@
     {% for student in students %}
         <tr>
             <td>{{ student.pk }}</td>
-            <td><a href="detail/{{ student.pk }}" student.first_name }}</a></td>
+            <td><a href="detail/{{ student.pk }}/"> {{ student.first_name }}</a></td>
             <td>{{ student.last_name }}</td>
-            <td><a href="update/{{ student.pk }}">Edit</a></td>
+            <td><a href="update/{{ student.pk }}/">Edit</a></td>
         </tr>
     {% endfor %}
     </table>

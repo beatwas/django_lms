@@ -4,7 +4,7 @@ from django.core.validators import MinLengthValidator
 from django.db import models
 
 
-class Groups(models.Model):
+class Group(models.Model):
     group_name = models.CharField(
         max_length=100,
         verbose_name='group name',
