@@ -1,7 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.utils.deconstruct import deconstructible
 
-from .models import Student
+import students.models
 
 
 def valid_email_domains(value):
@@ -14,9 +14,9 @@ def valid_email_domains(value):
 
 
 def validate_unique_email(value):
-    students = Student.object.all()
+    studentss = students.models.Student.object.all()
 
-    for student in students:
+    for student in studentss:
         if value == student.email:
             raise ValidationError(f'Email address {value} is busy')
             break
