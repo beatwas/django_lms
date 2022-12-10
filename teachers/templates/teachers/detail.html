@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>LMS - {{ title }}</title>
-</head>
-<body>
-    <p><a href="/teachers/update/{{ teacher.pk }}/">{{ teacher.first_name }}</a></p>
+{% extends 'base.html' %}
+
+{% block title %}Detail of {{ teacher.first_name}}{% endblock %}
+
+{% block content %}
+    <p><a href="{% url 'teacher:update' teacher.pk %}/">{{ teacher.first_name }}</a></p>
     <p>{{ teacher.last_name }}</p>
     <p>{{ teacher.email }}</p>
     <p>{{ teacher.birthday }}</p>
-    <a href="/students/">Back to list</a>
-</body>
-</html>
+    <a href="{% url 'teacher:list' %}">Back to list</a>
+{% endblock %}
