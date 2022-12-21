@@ -6,7 +6,7 @@
     <form method="post">
         {% csrf_token %}
         <p>Do you really want to remove "{{ teacher.last_name }} {{ teacher.first_name }}"?</p>
-        <input type="submit" value="Agree">
-        <a href="{% url 'teacher:list' %}">Cancel</a>
+        <input class="btn btn-outline-primary btn-sm" type="submit" value="Agree">
+        <a class="btn btn-outline-danger btn-sm" href="{% url 'teacher:list' %}">Cancel</a>
     </form>
 {% endblock %}

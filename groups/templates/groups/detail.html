@@ -3,8 +3,24 @@
 {% block title %}Detail of {{ group.group_name}}{% endblock %}
 
 {% block content %}
-    <p><a href="/groups/update/{{ group.pk }}/">{{ group.group_name }}</a></p>
-    <p>{{ group.date_start }}</p>
-    <p>{{ group.description }}</p>
-    <a href="{% url 'group:list' %}">Back to list</a>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    <<a href="/groups/update/{{ group.pk }}/">{{ group.group_name }}</a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        {{ group.date_start }} {% if group.get_age %}
+                            <span class="text-muted">({{ group.get_age }} year)</span>
+                        {% endif%}
+                    </li>
+                    <li class="list-group-item">{{ group.description }}</li>
+                </ul>
+                <a class="btn btn-outline-primary mt-3" href="{% url 'group:list' %}">Back to list</a>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
 {% endblock %}

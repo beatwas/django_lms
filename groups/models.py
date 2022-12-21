@@ -1,5 +1,7 @@
 from datetime import date
 
+from dateutil.relativedelta import relativedelta
+
 from django.core.validators import MinLengthValidator
 from django.db import models
 
@@ -22,3 +24,6 @@ class Group(models.Model):
 
     def __str__(self):
         return f'{self.group_name} {self.date_start}\n{self.description}'
+
+    def get_age(self):
+        return relativedelta(date.today(), self.date_start).years
