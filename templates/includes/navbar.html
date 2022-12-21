@@ -1,8 +1,8 @@
 {% load static %}
 
-<nav class="navbar fixed-top navbar-expand-lg" style="background-color: #e3f2fd;">
+<nav class="navbar stiky-top navbar-expand-lg" style="background-color: #e3f2fd;">
   <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{% url 'home' %}">
       <img src="{% static 'img/logo.jpg' %}" alt="LMS" width="30" height="24">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,11 +15,29 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Student
+            Students
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{% url 'student:create' %}">Create</a></li>
             <li><a class="dropdown-item" href="{% url 'student:list' %}">List</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Teachers
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'teacher:create' %}">Create</a></li>
+            <li><a class="dropdown-item" href="{% url 'teacher:list' %}">List</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Groups
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'group:create' %}">Create</a></li>
+            <li><a class="dropdown-item" href="{% url 'group:list' %}">List</a></li>
           </ul>
         </li>
       </ul>
